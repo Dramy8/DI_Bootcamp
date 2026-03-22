@@ -8,14 +8,19 @@ Original file is located at
 """
 
 #EX1
+# Print the following output using one line of code:
 
 print('Hello world \n' *4)
 
 #Ex2
+# Write code that calculates the result of:
+# (99^3)*8 (meaning 99 to the power of 3, times 8).
 
 print((99**3)*8)
 
 #Ex3
+# Predict the output of the following code snippets:
+# Coment what is your guess, then run the code and compare
 
 #5 < 3  False
 #3 == 3  True
@@ -24,11 +29,20 @@ print((99**3)*8)
 #"Hello" == "hello" False
 
 #Ex4
+# Create a variable called computer_brand which value is the brand name of your computer.
+# Using the computer_brand variable, print a sentence that states the following:
+# "I have a <computer_brand> computer."
 
 computer_brand = 'Apple'
 print(f"I have an {computer_brand} computer.")
 
 #Ex5
+# Create a variable called name, and set it’s value to your name.
+# Create a variable called age, and set it’s value to your age.
+# Create a variable called shoe_size, and set it’s value to your shoe size.
+# Create a variable called info and set it’s value to an interesting sentence about yourself. The sentence must contain all the variables created in parts 1, 2, and 3.
+# Have your code print the info message.
+# Run your code.
 
 name = 'Auriane'
 age = 30
@@ -39,6 +53,9 @@ print(f'My name is {name}, I am {age} years old and I wear a size {shoe_size}.')
 print(f'An interesting thing about me is that {info}.')
 
 #Ex6
+# Create two variables, a and b.
+# Each variable’s value should be a number.
+# If a is bigger than b, have your code print "Hello World".
 
 a = 8
 b = 7
@@ -46,6 +63,7 @@ if a>b:
   print('Hello World')
 
 #Ex7
+# Write code that asks the user for a number and determines whether this number is odd or even.
 
 nbr = int(input('Enter a number: '))
 if nbr%2==0:
@@ -54,6 +72,8 @@ else:
   print('Your number is odd.')
 
 #Ex8
+# Write code that asks the user for their name and determines whether or not you have the same name.
+# Print out a funny message based on the outcome.
 
 name = input('What is your name ?')
 if name=='Philippe':
@@ -62,6 +82,9 @@ else:
   print('Ok hopefully we will have something else in common...')
 
 #Ex9
+# Write code that will ask the user for their height in centimeters.
+# If they are over 145 cm, print a message that states they are tall enough to ride.
+# If they are not tall enough, print a message that says they need to grow some more to ride.
 
 height = int(input('What is your height? (in cm) '))
 if height>145:
