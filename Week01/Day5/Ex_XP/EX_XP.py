@@ -1,3 +1,4 @@
+#%%
 #EX1
 # You are given two lists. 
 # Convert them into a dictionary where the first list contains the keys 
