@@ -55,20 +55,78 @@ for letter in alphabet:
 # If the letter doesn’t exist in one of the words, print a friendly message with the word and the letter.
 
 words = [
-    input("enter a word: ")
-    input("enter a word: ")
-    input("enter a word: ")
-    input("enter a word: ")
-    input("enter a word: ")
-    input("enter a word: ")
+    input("enter a word: "),
+    input("enter a word: "),
+    input("enter a word: "),
+    input("enter a word: "),
+    input("enter a word: "),
+    input("enter a word: "),
     input("enter a word: ")
 ]
 
 letter = input("enter a character: ")
 
 for word in words:
-    print([0])
+    if letter in word:
+        print(word.index(letter))
+    else:
+        print(f"the letter {letter} does not appear in {word}")
 
 #%%
+#EX7
+# Create a list of numbers from one to one million and 
+# then use min() and max() to make sure your list actually starts at one and ends at one million.
+# Use the sum() function to see how quickly Python can add a million numbers.
+
+num = []
+
+i = 1
+while i <= 1000000:
+    num.append(i)
+    i += 1
+
+print(sum(num))
+
+# %%
+#EX8
+# Write a program which accepts a sequence of comma-separated numbers. 
+# Generate a list and a tuple which contain every number.
+
+values = input("Enter a sequence of comma-separated numbers: ").split(',')
+list_values = [int(v) for v in values]
+print(list_values)
+t = tuple(list_values)
+print(t)
+# %%
+#EX9
+# Ask the user to input a number from 1 to 9 (including).
+# Get a random number between 1 and 9. Hint: random module.
+# If the user guesses the correct number print a message that says Winner.
+# If the user guesses the wrong number print a message that says better luck next time.
+# Bonus: use a loop that allows the user to keep guessing until they want to quit.
+# Bonus 2: on exiting the loop tally up and display total games won and lost.
+
+import random
+wins = 0
+losses = 0
+
+while True:
+    guess = input("Enter a number (1-9) or 'exit': ")
+
+    if guess.lower() == "exit":
+        break
+
+    guess = int(guess)
+    random_number = random.randint(1, 9)
+
+    if guess == random_number:
+        print("Winner!")
+        wins += 1
+    else:
+        print("Better luck next time!")
+        losses += 1
+
+print(f"Games won: {wins}")
+print(f"Games lost: {losses}")
 
 # %%
