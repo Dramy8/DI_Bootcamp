@@ -74,6 +74,31 @@
 # print(decoded_message)
 
 
+def decode_matrix(matrix_str):
+    lines = matrix_str.strip().split('\n')
+    matrix = [list(line) for line in lines]
+
+
+    decoded = ""
+
+    for col in range(len(matrix[0])):
+        for row in range(len(matrix)):
+            decoded += matrix[row][col]
+
+    code = ''
+    letter_before = False
+
+    for char in decoded:
+        if char.isalpha():
+            code += char
+            letter_before = True
+    else:
+        if letter_before:
+            code += " "
+            letter_before = False
+
+    return code.strip()
+
 MATRIX_STR = '''
 7ir
 Tsi
@@ -83,30 +108,6 @@ sM#
 $a 
 #t%'''
 
-lines = MATRIX_STR.strip().split('\n')
-matrix = [list(line) for line in lines]
-for mat in matrix:
-    print(mat)
-
-decoded = ""
-
-for col in range(len(matrix[0])):
-    for row in range(len(matrix)):
-        decoded += matrix[row][col]
-
-code = ''
-letter_before = False
-
-for char in decoded:
-    if char.isalpha():
-        code += char
-        letter_before = True
-    else:
-        if letter_before:
-            code += " "
-            letter_before = False
-
-print(code.strip())
-
+print(decode_matrix(MATRIX_STR))
 
 # %%

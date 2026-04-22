@@ -47,11 +47,7 @@
 # After the loop ends, display the final result (winner or tie).
 
 
-board = [
-    [' ',' ',' '],
-    [' ',' ',' '],
-    [' ',' ',' ']
-]
+
 
 def display_board(board): 
     for i in range(len(board)):
@@ -62,35 +58,75 @@ def display_board(board):
             print("---------")
 
 
-def player_input(player):
-    values = input(f"Player {player}, enter row and column: ").split()
-    row = int(values[0]) - 1
-    col = int(values[1]) - 1
-    return row, col
+def player_input(player, board):
+    while True:
+        try:
+            values = input(f"Player {player}, enter row and column (1-3): ").split()
 
+            if len(values) != 2:
+                print("Please enter two numbers")
+                continue
 
-def check_win(board, player) :
-    # Check rows
-    if board[0][0] == player and board[0][1] == player and board[0][2] == player:
-        return True
-    if board[1][0] == player and board[1][1] == player and board[1][2] == player:
-        return True
-    if board[2][0] == player and board[2][1] == player and board[2][2] == player:
-        return True
-    # Check columns
-    if board[0][0] == player and board[1][0] == player and board[2][0] == player:
-        return True
-    if board[0][1] == player and board[1][1] == player and board[2][1] == player:
-        return True
-    if board[0][2] == player and board[1][2] == player and board[2][2] == player:
-        return True
-    # Check diagonals
+            row = int(values[0]) - 1
+            col = int(values[1]) - 1
+
+            # vérifier limites
+            if row not in range(3) or col not in range(3):
+                print("Numbers must be between 1 and 3")
+                continue
+
+            # vérifier case vide
+            if board[row][col] != ' ':
+                print("Cell already taken")
+                continue
+
+            return row, col
+
+        except ValueError:
+            print("Please enter valid numbers")
+
+# def check_win(board, player) :
+#     # Check rows
+#     if board[0][0] == player and board[0][1] == player and board[0][2] == player:
+#         return True
+#     if board[1][0] == player and board[1][1] == player and board[1][2] == player:
+#         return True
+#     if board[2][0] == player and board[2][1] == player and board[2][2] == player:
+#         return True
+#     # Check columns
+#     if board[0][0] == player and board[1][0] == player and board[2][0] == player:
+#         return True
+#     if board[0][1] == player and board[1][1] == player and board[2][1] == player:
+#         return True
+#     if board[0][2] == player and board[1][2] == player and board[2][2] == player:
+#         return True
+#     # Check diagonals
+#     if board[0][0] == player and board[1][1] == player and board[2][2] == player:
+#         return True
+#     if board[0][2] == player and board[1][1] == player and board[2][0] == player:
+#         return True
+#     return False
+
+def check_win(board, player):
+
+    # lignes
+    for row in board:
+        if row[0] == player and row[1] == player and row[2] == player:
+            return True
+
+    # colonnes
+    for col in range(3):
+        if board[0][col] == player and board[1][col] == player and board[2][col] == player:
+            return True
+
+    # diagonales
     if board[0][0] == player and board[1][1] == player and board[2][2] == player:
         return True
+
     if board[0][2] == player and board[1][1] == player and board[2][0] == player:
         return True
-    return False
 
+    return False
 
 def check_tie(board):
     for row in board:
@@ -101,11 +137,17 @@ def check_tie(board):
 
 
 def play():
+    board = [
+    [' ',' ',' '],
+    [' ',' ',' '],
+    [' ',' ',' ']
+    ]
+
     player = 'X'
 
     while True:
         display_board(board)
-        row, col = player_input(player)
+        row, col = player_input(player, board)
         
         board[row][col] = player
 

@@ -139,7 +139,8 @@ make_shirt(size="small",text="Central Perk")
 
 # Step 3: Create a Function to Modify the List
 # Create a function called make_great() that takes the magician_names list as a parameter.
-# Inside the function, use a for loop to iterate through the list and add “the Great” before each magician’s name.
+# Inside the function, use a for loop to iterate through the list and add “the Great”
+#  before each magician’s name.
 
 # Step 4: Call the Functions
 # Call make_great() to modify the list.
@@ -218,7 +219,7 @@ def main():
     print(f"The temperature right now is {temp} degrees Celsius.")
     if temp < 0:
         print("Brrr, that’s freezing! Wear some extra layers today.") 
-    elif 0<temp<16:
+    elif 0<=temp<16:
         print("Quite chilly! Don’t forget your coat.")
     elif 16<=temp<=23:
         print("Nice weather.")
