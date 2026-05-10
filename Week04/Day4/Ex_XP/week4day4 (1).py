@@ -50,21 +50,9 @@ EX1
 import os
 os.environ['KAGGLE_API_TOKEN'] = 'KGAT_a3a138e97aef1028d626956641c81743'
 
-import os
-print(os.listdir())
-
-import zipfile
-
-with zipfile.ZipFile("How Much Sleep Do Americans.zip", 'r') as zip_ref:
-    zip_ref.extractall("data")
-
-print(os.listdir("data"))
-
-print(os.listdir("data/How Much Sleep Do Americans"))
-
 import pandas as pd
 
-df = pd.read_csv("data/How Much Sleep Do Americans/Time Americans Spend Sleeping.csv")
+df = pd.read_csv("Time Americans Spend Sleeping.csv")
 df.head()
 
 """#EX2
@@ -104,11 +92,6 @@ Sex: Qualitative. Describes the gender group ('Both', 'Men', 'Women'), which are
 # Write a brief description of why each column is classified as qualitative or quantitative.
 # Tools: Jupyter Notebook, Python with Pandas library.
 
-!pip install kaggle
-
-import os
-os.environ['KAGGLE_API_TOKEN'] = 'KGAT_a3a138e97aef1028d626956641c81743'
-
 from google.colab import drive
 drive.mount('/content/drive')
 
@@ -123,7 +106,8 @@ sepal_length: This column is quantitative as it measures the length of the sepal
 
 """
 
-df.head()
+df1 = pd.read_csv("Iris_dataset.csv")
+df1.head()
 
 #EX5
 # Task:
@@ -131,11 +115,6 @@ df.head()
 # Identify columns that could be interesting for a specific type of analysis (e.g., trend analysis, group comparison) and explain your choice.
 # Tools: Jupyter Notebook, Python with Pandas library.
 
-import os
-print(os.listdir('/content/drive/MyDrive/Colab Notebooks'))
-
-import pandas as pd
-df = pd.read_csv('/content/drive/MyDrive/Colab Notebooks/Time Americans Spend Sleeping.csv')
 df.head()
 
 """#EX6 Identifying Interesting Columns for Analysis
@@ -196,16 +175,13 @@ The video can be transcribed and analyzed to extract structured information such
 # Import the train dataset. Use the train.csv file.
 # Print the first few rows of the DataFrame.
 
-import pandas as pd
-df = pd.read_csv('/content/drive/MyDrive/Colab Notebooks/train.csv')
-df.head()
+df2 = pd.read_csv('train.csv')
+df2.head()
 
 #EX9
 # Create a simple dataframe.
 # Export the dataframe to an excel file.
 # Export the dataframe to a JSON file.
-
-import pandas as pd
 
 data = {
     "Name": ["Alice", "Bob", "Charlie"],
@@ -213,16 +189,16 @@ data = {
     "City": ["Paris", "London", "New York"]
 }
 
-df = pd.DataFrame(data)
+df3 = pd.DataFrame(data)
 
-print(df)
+print(df3)
 
-df.to_excel('people.xlsx', sheet_name='Sheet1')
+df3.to_excel('people.xlsx', sheet_name='Sheet1')
 
 import os
 print(os.listdir())
 
-df.to_json('people.json', orient='split')
+df3.to_json('people.json', orient='split')
 
 import os
 print(os.listdir())
