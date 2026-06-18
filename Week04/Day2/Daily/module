@@ -1,0 +1,20 @@
+#%%
+import requests
+import time
+
+def time_request(url):
+    start = time.time()
+    requests.get(url)
+    end = time.time()
+    timing = end - start
+    return timing
+
+
+result = time_request("https://www.google.com")
+print(result)
+
+print(time_request("https://www.google.com"))
+print(time_request("https://www.ynet.co.il"))
+print(time_request("https://www.imdb.com"))
+
+# %%
