@@ -27,30 +27,32 @@ SELECT * FROM SecondTab
 
 --q1 What will be the OUTPUT of the following statement?
 
---     SELECT COUNT(*) 
---     FROM FirstTab AS ft WHERE ft.id NOT IN ( SELECT id FROM SecondTab WHERE id IS NULL )
+    SELECT COUNT(*) 
+    FROM FirstTab AS ft WHERE ft.id NOT IN ( SELECT id FROM SecondTab WHERE id IS NULL )
 
--- retrieve all details of ID from firsttab that are not null value in secondtab.  
+-- retrieve number of rows from firsttab that are not null value in secondtab. 
+-- since there is NULL the NOT IN condition will always be false., the output will be 0.  
 
 -- Q2. What will be the OUTPUT of the following statement?
 
---     SELECT COUNT(*) 
---     FROM FirstTab AS ft WHERE ft.id NOT IN ( SELECT id FROM SecondTab WHERE id = 5 )
+    SELECT COUNT(*) 
+    FROM FirstTab AS ft WHERE ft.id NOT IN ( SELECT id FROM SecondTab WHERE id = 5 )
 
--- retrieve all details of ID from firsttab except the one where id=5 in secondtab.  
+-- retrieve number of rows from firsttab excluding the row where id=5 in secondtab. so count will be 2.   
 
 -- Q3. What will be the OUTPUT of the following statement?
 
---     SELECT COUNT(*) 
---     FROM FirstTab AS ft WHERE ft.id NOT IN ( SELECT id FROM SecondTab )
+    SELECT COUNT(*) 
+    FROM FirstTab AS ft WHERE ft.id NOT IN ( SELECT id FROM SecondTab )
 
--- retrieve all details of ID from firsttab except the one where id is in secondtab.  
+-- retrieve all rows from firsttab except the one where id is in secondtab. 
+-- since there is NULL the NOT IN condition will always be false., the count output will be 0.  
 
 -- Q4. What will be the OUTPUT of the following statement?
 
---     SELECT COUNT(*) 
---     FROM FirstTab AS ft WHERE ft.id NOT IN ( SELECT id FROM SecondTab WHERE id IS NOT NULL )
+    SELECT COUNT(*) 
+    FROM FirstTab AS ft WHERE ft.id NOT IN ( SELECT id FROM SecondTab WHERE id IS NOT NULL )
 
--- retrieve all details of ID from firsttab except the one where id is in secondtab is not null  
+-- retrieve all rows from firsttab except the one where id is in secondtab is not null. so this is the case for 2 rows. so count is 2.  
 
 
